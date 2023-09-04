@@ -5,8 +5,9 @@ def kb():
     kb = ReplyKeyboardMarkup(
         resize_keyboard=True,
         keyboard=[
-            [KeyboardButton(text="/schedule"), KeyboardButton(text="/homework")],
-            [KeyboardButton(text="/Key_on"), KeyboardButton(text="/Key_off")],
+            [KeyboardButton(text="🗓 Расписание")],
+            [KeyboardButton(text="📝Домашнее задание")],
+            [KeyboardButton(text="🕘 Время до конца пары")],
         ],
     )
     return kb

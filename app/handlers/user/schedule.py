@@ -4,6 +4,7 @@ from app.keyboards.inline_keyboard import schedule_ikb
 from app.others.document_reader import doc_reader
 
 
+@dp.message_handler(text="🗓 Расписание")
 @dp.message_handler(commands="schedule")
 async def schedule_command(message: types.Message):
     await message.answer(text=doc_reader("schedule_1"), reply_markup=schedule_ikb(1))

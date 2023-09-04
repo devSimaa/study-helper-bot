@@ -4,7 +4,7 @@ from app.keyboards.inline_keyboard import homework_ikb
 from app.others.document_reader import doc_reader
 
 
-#
+@dp.message_handler(text="📝Домашнее задание")
 @dp.message_handler(commands="homework")
 async def homework_command(message: types.Message):
     await message.answer(text=doc_reader("homework_1"), reply_markup=homework_ikb(1))
