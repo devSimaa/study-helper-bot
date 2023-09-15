@@ -8,4 +8,10 @@ env.read_env()
 
 DIR = Path(__file__).absolute().parent.parent
 
-token_api = env.str("API", default=None)
+token_api = env.str("TOKEN", default=None)
+banned_users = env.str("BANED", default=None)
+admins = env.str("ADMINS", default=None)
+
+I18N_DOMAIN = 'bot'
+LOCALES_DIR = f'{DIR}\config\locales'
+
