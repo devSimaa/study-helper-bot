@@ -1,7 +1,7 @@
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
 
-def kb():
+def kb(admin=None):
     kb = ReplyKeyboardMarkup(
         resize_keyboard=True,
         keyboard=[
@@ -10,4 +10,5 @@ def kb():
             [KeyboardButton(text="🕘 Время до конца пары")],
         ],
     )
+    if admin is True: kb.add(KeyboardButton(text="Редактировать"))
     return kb

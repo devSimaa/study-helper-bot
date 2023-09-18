@@ -4,7 +4,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 from data.config import token_api
 from app.middlewares.i18n import setup_middleware
-import database.db 
+import database.db_requests 
 storage = MemoryStorage()
 bot = Bot(token_api)
 dp = Dispatcher(bot=bot, storage=storage)

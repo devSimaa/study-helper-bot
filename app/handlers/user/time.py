@@ -1,5 +1,6 @@
 from aiogram import types, Dispatcher
 from loader import dp, bot
+from database.statistica import statistic
 
 
 @dp.message_handler(text="🕘 Время до конца пары")
@@ -17,3 +18,4 @@ async def time_command(message: types.Message):
 """
     )
     await message.delete()
+    await statistic("Время")
