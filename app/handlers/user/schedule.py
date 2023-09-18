@@ -2,13 +2,21 @@ from aiogram import types, Dispatcher
 from loader import dp, bot
 from app.keyboards.inline_keyboard import schedule_ikb
 from app.others.document_reader import doc_reader
+from database.db import get_schedule
+
 
 
 @dp.message_handler(text="🗓 Расписание")
 @dp.message_handler(commands="schedule")
 async def schedule_command(message: types.Message):
-    await message.answer(text=doc_reader("schedule_1"), reply_markup=schedule_ikb(1))
+    await message.answer(text=await get_schedule("Tuesday"), reply_markup=schedule_ikb(1))
     await message.delete()
+
+# @dp.message_handler(text="🗓 Расписание")
+# @dp.message_handler(commands="schedule")
+# async def schedule_command(message: types.Message):
+#     await message.answer(text=doc_reader("schedule_1"), reply_markup=schedule_ikb(1))
+#     await message.delete()
 
 
 @dp.callback_query_handler(text=["Эта неделя(расписание)", "Другая неделя(расписание)"])
