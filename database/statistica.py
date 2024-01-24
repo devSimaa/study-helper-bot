@@ -6,3 +6,12 @@ db_statistic = db.statistic
 
 async def statistic(name):
     db_statistic.update_one({"tags": 0},{"$inc": {f"{name}": +1}})
+
+async def get_statistic():
+    sche = ''
+    list = ["Старт","Расписание","Домашнее задание","Время"]
+    
+    info = (db_statistic.find_one({"tags": 0},{"_id":0, "tags": 0}))
+    for key, value in info.items():
+        sche += (f'{key}: {value} \n')
+    return sche
