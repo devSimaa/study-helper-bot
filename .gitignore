@@ -2,6 +2,8 @@
 .fleet
 .vscode
 .venv
+.venv.mongo
+
 
 **/__pycache__
 
