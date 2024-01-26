@@ -1,7 +1,7 @@
 from peewee import Model, PostgresqlDatabase, CharField
 
 # Подключение к базе данных PostgreSQL
-db = PostgresqlDatabase('название_вашей_базы_данных',user='ваш_пользователь', password='ваш_пароль', host='localhost')
+db = PostgresqlDatabase(name='название_вашей_базы_данных',user='ваш_пользователь', password='ваш_пароль', host='localhost')
 
 class BaseModel(Model):
     class Meta:
