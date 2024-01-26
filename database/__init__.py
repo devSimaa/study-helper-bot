@@ -1,2 +1,2 @@
-from .db_requests import *
+from .models.user import *
 from .statistica import *

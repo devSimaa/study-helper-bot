@@ -1,7 +1,7 @@
 from aiogram import Bot, Dispatcher, executor
 from app import middlewares, handlers
 from loader import dp, bot
-from database.db_requests import db_close
+from database.models.user import db_close
 
 async def start_up(_):
     # await db_start()

@@ -2,8 +2,11 @@
 .fleet
 .vscode
 .venv
+.venv.mongo
+
 
 **/__pycache__
 
+**/test.sqlite
 **/.env
 **/logs
