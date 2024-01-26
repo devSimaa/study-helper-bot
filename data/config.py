@@ -18,7 +18,10 @@ mongo_user = env.str("MONGO_USER", default=None)
 mongo_password = env.str("MONGO_PASS", default=None)
 auth_source = env.str("AUTH_SOURC", default=None)
 
-mongodb_url = f"mongodb://{mongo_user}:{mongo_password}@{mongo_host}:{mongo_port}/{auth_source}"
+if not mongo_host:
+    mongodb_url = f'mongodb://localhost:{mongo_port}/'
+else:
+    mongodb_url = f"mongodb://{mongo_user}:{mongo_password}@{mongo_host}:{mongo_port}/{auth_source}"
 
 #
  

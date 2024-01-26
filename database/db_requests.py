@@ -3,6 +3,7 @@ from data.config import mongodb_url
 
 
 client = MongoClient(mongodb_url)
+print(client)
 db = client["studybot"]
 db_schedule = db['schedule']
 db_homework = db.homework
