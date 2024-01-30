@@ -1,11 +1,11 @@
 from aiogram import Bot, Dispatcher, executor
 from app import middlewares, handlers
 from loader import dp, bot
-from database.db_requests import db_close
+from database.db_connect import db_close
 
 async def start_up(_):
     # await db_start()
-    import database.statistica
+    import database.service.statistica
     print("< Bot start_up >")   
 
 async def on_shutdown(dispatcher: Dispatcher):

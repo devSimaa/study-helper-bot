@@ -1,2 +1,2 @@
-from .db_requests import *
-from .statistica import *
+from .db_connect import *
+from .service import *

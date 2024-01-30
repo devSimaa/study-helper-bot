@@ -3,7 +3,7 @@ from aiogram import types, Dispatcher
 from loader import dp, bot
 from app.keyboards.inline_keyboard import update_statistica_ikb
 
-from database.statistica import get_statistic
+from database.service.statistica import get_statistic
 
 
 @dp.message_handler(text="📊 Статистика")
