@@ -1,6 +1,6 @@
 from aiogram import types, Dispatcher
 from loader import dp, bot
-from app.keyboards.keyboard import kb
+from app.keyboards.keyboard import base_kb
 
 
 # вкл.чение клавиатуры
@@ -8,7 +8,7 @@ from app.keyboards.keyboard import kb
 async def start_command(message: types.Message):
     await message.answer(
         text="Клавиатура включена.",
-        reply_markup=kb(),
+        reply_markup=base_kb(),
     )
     await message.delete()
 

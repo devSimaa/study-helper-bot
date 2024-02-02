@@ -1,7 +1,7 @@
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
 
-def kb(admin=None):
+async def base_kb(admin=None):
     kb = ReplyKeyboardMarkup(
         resize_keyboard=True,
         keyboard=[

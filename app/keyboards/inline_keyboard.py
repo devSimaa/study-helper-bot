@@ -3,8 +3,9 @@ from aiogram.types import (
     InlineKeyboardMarkup,
     InlineKeyboardButton,
 )
-
 from database.service.groupe import get_groups
+
+
 async def group_ikb():
     groups = await get_groups()
 
@@ -13,7 +14,14 @@ async def group_ikb():
         ikb.add(InlineKeyboardButton(text=i['group'], callback_data=f"{i['group']}_join"))
     return ikb
 
-def base_ikb():
+
+async def start_ikb():
+    ikb = InlineKeyboardMarkup()
+    ikb.add(InlineKeyboardButton(text="Выбрать группу", callback_data="select_group"))
+    return ikb
+
+
+async def base_ikb():
     ikb = InlineKeyboardMarkup(
         resize_keyboard=True,
         inline_keyboard=[
@@ -23,7 +31,9 @@ def base_ikb():
         ],
     )
     return ikb
-def update_statistica_ikb():
+
+
+async def update_statistica_ikb():
     ikb = InlineKeyboardMarkup(
         resize_keyboard=True,
         inline_keyboard=[
@@ -34,7 +44,8 @@ def update_statistica_ikb():
     )
     return ikb
 
-def homework_ikb(variable):
+
+async def homework_ikb(variable):
     if variable == 1:
         ikb = InlineKeyboardMarkup(
             resize_keyboard=True,
@@ -67,7 +78,7 @@ def homework_ikb(variable):
     return ikb
 
 
-def schedule_ikb(variable):
+async def schedule_ikb(variable):
     if variable == 1:
         ikb = InlineKeyboardMarkup(
             resize_keyboard=True,
