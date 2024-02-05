@@ -3,6 +3,8 @@ from database.db_connect import db_groups, db_schedule
 
 async def get_groups() -> list:
     return db_groups.find({}, {"_id": 0})
+    
+
 
 async def add_group(group_name):
     db_groups.insert_one({"group": group_name})

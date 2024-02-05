@@ -13,8 +13,6 @@ async def schedule_command(message: types.Message):
     await message.delete()
 
 
-
-
 @dp.callback_query_handler(text=["Эта неделя(расписание)", "Другая неделя(расписание)"])
 async def schedule_handler(callback: types.CallbackQuery):
     if callback.data == "Эта неделя(расписание)":

@@ -4,16 +4,19 @@ from aiogram.dispatcher import FSMContext
 
 from loader import dp, bot
 from app.states import Group
-from data.config import admins
+from app.filters.admin import IsAdmin
 from database.service.groupe import add_group
 
-@dp.message_handler(Command("add_group"), user_id=admins)
+
+        
+
+@dp.message_handler(Command("add_group"), IsAdmin())
 async def add_group_comnand(message: types.Message):
     await message.answer('Укажите название группы')
-    await Group.name.set()
+    await Group.name.set()  
 
 
-@dp.message_handler(state=Group.name)
+@dp.message_handler(IsAdmin(),state=Group.name)
 async def add_group_input(message: types.Message, state=FSMContext):
     await add_group(message.text)
     await message.reply((f"Added {message.text}"))
