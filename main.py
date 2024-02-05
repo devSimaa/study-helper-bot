@@ -4,7 +4,8 @@ from loader import dp, bot
 from database.db_connect import db_close
 
 async def start_up(_):
-
+    from app.commands import set_default_commands
+    await set_default_commands()
     print("< Bot start_up >")   
 
 async def on_shutdown(dispatcher: Dispatcher):

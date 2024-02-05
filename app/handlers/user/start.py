@@ -18,14 +18,9 @@ async def start_command(message: types.Message):
         reply_markup= await start_ikb()
         )
     await add_user(user_id=message.from_user.id)
-    
     await JoinGroup.message.set()
     
 
-@dp.callback_query_handler(Text("select_group"),state=JoinGroup.message)
-async def select_group(callback: types.CallbackQuery):
-    await callback.message.edit_text("Выберите группу, или напишите свою.",reply_markup=await group_ikb()) 
-    await JoinGroup.next()
 
 
 @dp.message_handler(state=JoinGroup.select)
@@ -34,6 +29,10 @@ async def join_group_inpuy(message: types.Message, state=FSMContext):
     await message.answer("Вы теперь в группе! Попробуйте использовать клавитару бота или обратитесь к /help для ознакомления с командами.")
     await JoinGroup.next()
 
+@dp.callback_query_handler(Text("select_group"),state=JoinGroup.message)
+async def select_group(callback: types.CallbackQuery):
+    await callback.message.edit_text("Выберите группу, или напишите свою.",reply_markup=await group_ikb()) 
+    await JoinGroup.next()
 
 @dp.callback_query_handler(Text(endswith="_join"), state=JoinGroup.select)
 async def join_group(callback: types.CallbackQuery, state=FSMContext):
