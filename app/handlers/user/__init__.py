@@ -4,6 +4,6 @@ from .schedule import dp
 from .keyboard_on_off import dp
 from .time import dp
 from .statistic import dp
-
+from .change_group import dp
 
 __all__ = ["dp"]
