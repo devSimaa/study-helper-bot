@@ -22,6 +22,6 @@ async def schedule_handler(callback: types.CallbackQuery):
     elif callback.data == "Другая неделя(расписание)":
         await callback.message.edit_text(
             text=await get_schedule(user_id=callback.from_user.id, week="week2"),
-            reply_markup=schedule_ikb(2),
+            reply_markup=await schedule_ikb(2),
         )
 
