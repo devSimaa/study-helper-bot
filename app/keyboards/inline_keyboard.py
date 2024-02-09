@@ -127,7 +127,7 @@ async def admin_panel_group_ikb():
         inline_keyboard=[
             [
                 InlineKeyboardButton(text="Добавить группу [+]", callback_data="adminGroup_addGroup"),
-                InlineKeyboardButton(text="Удалить группу [-]", callback_data="adminGroup_deleteGroup"),
+                InlineKeyboardButton(text="Удалить группу [-]", callback_data="adminGroup_delGroup"),
             ],
         ],
     )
@@ -139,7 +139,7 @@ async def admin_panel_user_ikb():
         inline_keyboard=[
             [
                 InlineKeyboardButton(text="Удалить старосту [+]", callback_data="adminUser_addLider"),
-                InlineKeyboardButton(text="Назначить старосту [-]", callback_data="adminUser_deleteLider"),
+                InlineKeyboardButton(text="Назначить старосту [-]", callback_data="adminUser_delLider"),
             ],
             [
                 InlineKeyboardButton(text="Заблокировать пользователя", callback_data="adminUser_banUser"),

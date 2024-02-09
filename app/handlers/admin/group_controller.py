@@ -23,7 +23,19 @@ async def add_group(callback: types.CallbackQuery):
 @dp.message_handler(IsAdmin(),state=Group.name)
 async def add_group_input(message: types.Message, state=FSMContext):
     await groupe.add_group(message.text)
-    await  message.reply((f"Added <blockquote>{message.text}</blockquote>"))
+    await  message.reply((f"<code>{message.text}</code> - группа добавленна."))
     await Group.next()
 
+
+@dp.callback_query_handler(IsAdmin(), Text("adminGroup_delGroup"))
+async def del_group(callback: types.CallbackQuery):
+    await callback.message.edit_text('Укажите название группы')
+    await Group.name.set()  
+
+
+@dp.message_handler(IsAdmin(),state=Group.name)
+async def del_group_input(message: types.Message, state=FSMContext):
+    await groupe.add_group(message.text)
+    await  message.reply((f"<code>{message.text}</code> - группа удаленна."))
+    await Group.next()
 
