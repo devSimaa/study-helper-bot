@@ -1,7 +1,6 @@
 from database.db_connect import db_users
 
 async def get_user(user_id) -> None:
-    print(db_users.find_one({"_id":user_id}))
     return db_users.find_one({"_id":user_id})
 
 async def add_user(user_id) -> None:

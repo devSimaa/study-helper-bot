@@ -6,7 +6,7 @@ from loader import dp, bot
 from app.states import Group
 from app.filters.admin import IsAdmin
 from database.service import groupe
-from app.keyboards.inline_keyboard import admin_panel_group_ikb
+from app.keyboards.inline.adin_panel import admin_panel_group_ikb
 
         
 

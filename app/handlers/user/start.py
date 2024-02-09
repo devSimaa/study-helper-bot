@@ -1,12 +1,9 @@
-from aiogram import types, Dispatcher
-from aiogram.dispatcher.filters import CommandStart, Text
-from aiogram.dispatcher import FSMContext
+from aiogram import types
+from aiogram.dispatcher.filters import CommandStart
 
-from loader import dp, bot
-from app.keyboards.keyboard import base_kb
-from app.keyboards.inline_keyboard import group_ikb, start_ikb
-from data.config import admins
-from database.service.users import add_user, user_join_group
+from loader import dp
+from app.keyboards.inline.default import start_ikb
+from database.service.users import add_user
 from app.states.join_group import JoinGroup
 
 @dp.message_handler(CommandStart())

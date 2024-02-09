@@ -1,6 +1,6 @@
 from aiogram import types, Dispatcher
 from loader import dp, bot
-from app.keyboards.inline_keyboard import schedule_ikb
+from app.keyboards.inline.schedule import schedule_ikb
 from database.service.schedule import get_schedule
 
 

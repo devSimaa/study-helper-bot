@@ -1,9 +1,8 @@
 from aiogram import types, Dispatcher
 from aiogram.dispatcher.filters import Command
-from aiogram.dispatcher import FSMContext
 
 from loader import dp, bot
-from app.keyboards.inline_keyboard import admin_panel_ikb
+from app.keyboards.inline.adin_panel import admin_panel_ikb
 from app.filters.admin import IsAdmin
 
 

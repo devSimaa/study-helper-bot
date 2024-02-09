@@ -1,7 +1,7 @@
 from aiogram import types, Dispatcher
 
 from loader import dp, bot
-from app.keyboards.inline_keyboard import update_statistica_ikb
+from app.keyboards.inline.stats import update_statistica_ikb
 
 from database.service.statistica import get_statistic
 

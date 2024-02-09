@@ -1,6 +1,6 @@
 from aiogram import types, Dispatcher
 from loader import dp, bot
-from app.keyboards.keyboard import base_kb
+from app.keyboards.default.default import base_kb
 
 
 # вкл.чение клавиатуры

@@ -1,7 +1,7 @@
-from aiogram import types, Dispatcher
+from aiogram import types
 
 from loader import dp, bot
-from app.keyboards.inline_keyboard import homework_ikb
+from app.keyboards.inline.homework import homework_ikb
 from database.service.homework import get_homework
 from database.service.statistica import statistic
 
