@@ -5,7 +5,7 @@ from aiogram.dispatcher import FSMContext
 from loader import dp, bot
 from database.service.users import user_join_group
 from app.keyboards.default.default import base_kb
-from app.keyboards.inline.group import group_ikb
+from app.keyboards.inline.group import join_group_ikb
 
 from app.states.join_group import JoinGroup
 
@@ -23,7 +23,7 @@ async def join_group_inpuy(message: types.Message, state=FSMContext):
 
 @dp.callback_query_handler(Text("select_group"),state=JoinGroup.message)
 async def select_group(callback: types.CallbackQuery):
-    await callback.message.edit_text("Выберите группу, или напишите свою.",reply_markup=await group_ikb()) 
+    await callback.message.edit_text("Выберите группу, или напишите свою.",reply_markup=await join_group_ikb()) 
     await JoinGroup.next()
 
 @dp.callback_query_handler(Text(endswith="_join"), state=JoinGroup.select)

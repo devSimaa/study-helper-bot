@@ -8,4 +8,4 @@ async def get_admins() -> list:
     return admins
 
 async def add_admin(user_id: int) -> None:
-    db_users.update_one({"_id":user_id}, {"$set":{"role": "admin"}})
+    db_users.update_one({"_id":user_id}, {"$set":{"role": "admin"}})    
