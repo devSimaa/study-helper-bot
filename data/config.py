@@ -9,7 +9,7 @@ env.read_env()
 #  tgbot
 token_api = env.str("TOKEN", default=None)
 banned_users = env("BANED", default=None)
-admins = [env("ADMINS", default=None)]
+admins = [env.str("ADMINS", default=None)]
 
 # mongodb
 mongo_host = env.str("MONGO_HOST", default=None)

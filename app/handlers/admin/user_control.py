@@ -1,15 +1,13 @@
 from aiogram import types, Dispatcher
-from aiogram.dispatcher.filters import Command
+from aiogram.dispatcher.filters import Command, Text
 from aiogram.dispatcher import FSMContext
 
 from loader import dp, bot
 from app.filters.admin import IsAdmin
-from database.service.groupe import add_group
-from database.service.admin import get_admins
+from app.keyboards.inline.adin_panel import admin_panel_user_ikb
 
-
-@dp.message_handler(Command("users"), IsAdmin())
-async def user_controller(message: types.Message):
-    pass
+@dp.callback_query_handler(IsAdmin(), Text("adminUser"))
+async def adminGroup(callback: types.CallbackQuery):
+    await callback.message.edit_text('Что вы хотите сделать?', reply_markup=await admin_panel_user_ikb())
 
 

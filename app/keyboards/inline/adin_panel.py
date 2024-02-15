@@ -5,7 +5,7 @@ async def admin_panel_ikb():
         resize_keyboard=True,
         inline_keyboard=[
             [
-                InlineKeyboardButton(text="👤 Users", callback_data="adminUsers"),
+                InlineKeyboardButton(text="👤 Users", callback_data="adminUser"),
                 InlineKeyboardButton(text="🎓 Group", callback_data="adminGroup"),
             ],
         ],
@@ -34,6 +34,7 @@ async def admin_panel_user_ikb():
             ],
             [
                 InlineKeyboardButton(text="Заблокировать пользователя", callback_data="adminUser_banUser"),
+                InlineKeyboardButton(text="Разблокировать пользователя", callback_data="adminUser_unbanUser"),
             ],
         ],
     )
