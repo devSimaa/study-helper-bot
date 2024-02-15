@@ -4,7 +4,7 @@ from aiogram.dispatcher import FSMContext
 
 from loader import dp, bot
 from app.filters.admin import IsAdmin
-from app.keyboards.inline.adin_panel import admin_panel_user_ikb
+from app.keyboards.inline.admin_panel import admin_panel_user_ikb
 
 @dp.callback_query_handler(IsAdmin(), Text("adminUser"))
 async def adminGroup(callback: types.CallbackQuery):
