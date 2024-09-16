@@ -1,9 +1,5 @@
 from .start import dp
-from .homework import dp
-from .schedule import dp
-from .keyboard_on_off import dp
-from .time import dp
-from .statistic import dp
-from .change_group import dp
+from .help import dp
+from .settings import dp
 
 __all__ = ["dp"]

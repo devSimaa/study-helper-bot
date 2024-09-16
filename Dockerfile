@@ -1,13 +1,34 @@
-FROM ubuntu:latest
+# preparatory actions stage
+FROM python:3.11-slim-buster as builder
 
-RUN apt-get update -qy
-RUN apt-get install -qy python3.8 python3-pip python3-8-dev
-RUN apt-get install -y mongodb
+WORKDIR /app
 
-COPY . /studybot
-WORKDIR /studybot
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-RUN pip3 install -r requirements.txt
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc libc-dev libffi-dev python3-dev musl-dev
+
+RUN pip install virtualenv
+
+RUN virtualenv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
 
-CMD ["python3", "main.py"]
+# final stage
+FROM python:3.11-slim-buster
+
+RUN addgroup --system app && adduser --system --group app --home /app
+
+COPY --from=builder /opt/venv /opt/venv
+
+WORKDIR /app
+
+ENV PATH="/opt/venv/bin:$PATH"
+
+COPY . .
+
+CMD [ "python", "main.py" ]

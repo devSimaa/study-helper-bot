@@ -1,22 +1,24 @@
-from aiogram import Bot, Dispatcher, executor
-from app import middlewares, handlers, filters
+from aiogram import Dispatcher, executor
+from app import middlewares ,filters, handlers
 from loader import dp, bot
-from database.db_connect import db_close
+from utils.logging import logger
 
-async def start_up(_):
+
+async def on_startup(_):
     from app.commands import set_default_commands
     await set_default_commands()
-    print("< Bot start_up >")   
+    logger.info("~ Bot_startup")
 
 async def on_shutdown(dispatcher: Dispatcher):
-    await db_close()
-    print("Shutting down...")
+    logger.info("~ Shutting down...")
+
 
 if __name__ == "__main__":
-    executor.start_polling(
+    from app.middlewares import setup_middlewares
+    setup_middlewares(dp)
+    executor.start_polling(     
         dp,
-        on_startup=start_up,
+        on_startup=on_startup,
         on_shutdown=on_shutdown,
         skip_updates=True,
     )
-    
